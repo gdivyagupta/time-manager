@@ -1,0 +1,26 @@
+{
+  "timezone": "Asia/Kolkata",
+  "weekly_capacity_hours": 168,
+  "sleep_target_hours": 7.5,
+  "categories": [
+    {"name":"Canada Career","group":"career","color":"#7c3aed"},
+    {"name":"AI Technical","group":"career","color":"#2563eb"},
+    {"name":"Portfolio","group":"career","color":"#0891b2"},
+    {"name":"Research","group":"career","color":"#059669"},
+    {"name":"Personal Brand","group":"career","color":"#db2777"},
+    {"name":"Networking","group":"career","color":"#ea580c"},
+    {"name":"Income","group":"income","color":"#ca8a04"},
+    {"name":"Health","group":"health","color":"#16a34a"},
+    {"name":"Recovery","group":"health","color":"#64748b"},
+    {"name":"Maintenance","group":"life","color":"#6b7280"}
+  ],
+  "goals": [
+    {"name":"Canada 2027","deadline":"2027-03-31","description":"Return to Canada with a full-time research, AI product management, or AI solutions engineering role."}
+  ],
+  "energy_rules": {
+    "high": ["Canada Career","AI Technical","Portfolio","Research","Networking"],
+    "medium": ["Personal Brand","Planning","Income"],
+    "low": ["Recovery","Maintenance","light content editing","admin"]
+  },
+  "fixed_commitments": []
+}
