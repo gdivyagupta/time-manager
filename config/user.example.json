@@ -1,31 +1,13 @@
 {
-  "name": "Example User",
-  "timezone": "Asia/Kolkata",
+  "profile_name": "Example Profile",
+  "timezone": "Etc/UTC",
   "goals": [
-    {
-      "name": "Primary career goal",
-      "deadline": "2027-03-31",
-      "description": "Define your primary outcome and deadline here.",
-      "priority": 1
-    }
+    {"name":"Primary Goal","deadline":"2027-12-31","description":"Define the outcome this system should help you achieve.","priority":1}
   ],
-  "fixed_commitments": [
-    {"name":"Work","days":["MO","TU","WE","TH","FR"],"start":"11:00","end":"18:00","category":"Maintenance"},
-    {"name":"Office commute","days":["MO","WE","FR"],"start":"09:00","end":"11:00","category":"Recovery","energy":"Low"},
-    {"name":"Office commute","days":["MO","WE","FR"],"start":"18:00","end":"21:00","category":"Recovery","energy":"Low"},
-    {"name":"Office preparation","days":["MO","WE","FR"],"start":"07:30","end":"09:00","category":"Maintenance","energy":"Medium"},
-    {"name":"Sleep","days":["MO","TU","WE","TH","FR","SA","SU"],"start":"00:00","end":"07:00","category":"Health","energy":"Recovery"},
-    {"name":"Personal maintenance","days":["MO","TU","WE","TH","FR","SA","SU"],"weekly_hours":14,"category":"Maintenance"}
-  ],
-  "weekly_budgets": {
-    "Canada Career": 5,
-    "AI Technical": 7,
-    "Portfolio": 8,
-    "Research": 3,
-    "Personal Brand": 3,
-    "Networking": 2,
-    "Health": 3.5,
-    "Recovery": 2,
-    "Buffer": 1
-  }
+  "sleep":{"target_hours":7.5,"preferred_start":"23:30","preferred_end":"07:00"},
+  "energy":{"high_energy_windows":["08:00-11:00"],"medium_energy_windows":["11:00-17:00"],"low_energy_windows":["19:00-22:00"],"rules":["Protect sleep before productivity.","Put demanding work in high-energy windows.","Treat recovery as legitimate time."]},
+  "categories":[{"name":"Career","group":"goal","color":"#6d28d9"},{"name":"Learning","group":"goal","color":"#2563eb"},{"name":"Projects","group":"goal","color":"#0891b2"},{"name":"Income","group":"income","color":"#ca8a04"},{"name":"Health","group":"health","color":"#16a34a"},{"name":"Recovery","group":"health","color":"#64748b"},{"name":"Personal","group":"life","color":"#6b7280"}],
+  "fixed_commitments":[],
+  "recurring_responsibilities":[],
+  "weekly_budgets":[]
 }
