@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build your profile - Time Manager</title>
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,sans-serif;color:#202124;background:#f6f6f3}*{box-sizing:border-box}body{max-width:900px;margin:auto;padding:28px 18px 50px}.card{background:#fff;border:1px solid #ddd;border-radius:14px;padding:20px;margin-top:14px}h1{margin-bottom:5px}.muted{color:#666}label{font-weight:600;display:block;margin:13px 0 6px}input,textarea,button{font:inherit;border:1px solid #ccc;border-radius:9px;padding:10px 11px;width:100%}textarea{min-height:360px;font-family:ui-monospace,SFMono-Regular,monospace;font-size:13px}button{background:#202124;color:white;cursor:pointer;margin-top:12px}a{color:#202124}.notice{background:#f1f1ed;padding:12px;border-radius:10px;margin-top:12px}
+  </style>
+</head>
+<body>
+  <a href="/">← Back to Time Manager</a>
+  <h1 style="margin-top:18px">Build your profile</h1>
+  <p class="muted">This is the only setup the system needs. Your profile stays local and is not part of the public repository.</p>
+
+  <div class="card">
+    <div class="notice"><strong>What the agent needs:</strong> goals, sleep, energy patterns, categories, fixed commitments, recurring responsibilities, and weekly targets. The example below contains no real person's schedule.</div>
+    <form method="post" action="/profile">
+      <label for="profile_json">Profile configuration</label>
+      <textarea id="profile_json" name="profile_json" spellcheck="false">{{ profile | tojson(indent=2) }}</textarea>
+      <button type="submit">Save local profile</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Profile design</h2>
+    <p class="muted">The profile is intentionally generic. Future UI versions can turn each section into normal forms without changing the underlying model.</p>
+    <ul>
+      <li><strong>Goals:</strong> what the system is optimising for and by when.</li>
+      <li><strong>Sleep:</strong> minimum protected recovery.</li>
+      <li><strong>Energy:</strong> when deep, light, and recovery tasks belong.</li>
+      <li><strong>Categories:</strong> how time is classified.</li>
+      <li><strong>Fixed commitments:</strong> recurring blocks that constrain planning.</li>
+      <li><strong>Recurring responsibilities:</strong> weekly obligations without necessarily having a fixed clock time.</li>
+      <li><strong>Weekly budgets:</strong> intentional allocation targets rather than mandatory quotas.</li>
+    </ul>
+  </div>
+</body>
+</html>
