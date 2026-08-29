@@ -13,7 +13,8 @@ from .db import add_log, add_plan, init_db, recent_logs, weekly_rollup, plans_fo
 from .planner import validate_no_overlap
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-CONFIG_PATH = BASE_DIR / "config" / "user.example.json"
+EXAMPLE_PROFILE = BASE_DIR / "config" / "profile.example.json"
+USER_PROFILE = BASE_DIR / "data" / "profile.json"
 TEMPLATES = BASE_DIR / "app" / "templates"
 
 app = FastAPI(title="Time Manager")
@@ -22,7 +23,22 @@ init_db()
 
 
 def config() -> dict:
-    return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    path = USER_PROFILE if USER_PROFILE.exists() else EXAMPLE_PROFILE
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def has_user_profile() -> bool:
+    return USER_PROFILE.exists()
+
+
+def save_config(payload: str) -> None:
+    data = json.loads(payload)
+    required = ["profile_name", "timezone", "goals", "sleep", "energy", "categories", "fixed_commitments", "recurring_responsibilities", "weekly_budgets"]
+    missing = [key for key in required if key not in data]
+    if missing:
+        raise ValueError("Missing profile fields: " + ", ".join(missing))
+    USER_PROFILE.parent.mkdir(parents=True, exist_ok=True)
+    USER_PROFILE.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -35,11 +51,26 @@ def home(request: Request):
         {
             "request": request,
             "config": config(),
+            "onboarded": has_user_profile(),
             "logs": recent_logs(),
             "plans": plans_for_range(week_start.isoformat(), week_end.isoformat()),
             "summary": weekly_rollup(week_start.isoformat(), week_end.isoformat()),
         },
     )
+
+
+@app.get("/profile", response_class=HTMLResponse)
+def profile_page(request: Request):
+    return templates.TemplateResponse(
+        "profile.html",
+        {"request": request, "profile": config(), "onboarded": has_user_profile()},
+    )
+
+
+@app.post("/profile")
+def profile_save(profile_json: str = Form(...)):
+    save_config(profile_json)
+    return RedirectResponse("/", status_code=303)
 
 
 @app.post("/log")
