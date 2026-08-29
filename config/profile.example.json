@@ -1,0 +1,38 @@
+{
+  "profile_name": "Example Profile",
+  "timezone": "Etc/UTC",
+  "goals": [
+    {
+      "name": "Primary Goal",
+      "deadline": "2027-12-31",
+      "description": "Define the outcome this system should help you achieve."
+    }
+  ],
+  "sleep": {
+    "target_hours": 7.5,
+    "preferred_start": "23:30",
+    "preferred_end": "07:00"
+  },
+  "energy": {
+    "high_energy_windows": ["08:00-11:00"],
+    "medium_energy_windows": ["11:00-17:00"],
+    "low_energy_windows": ["19:00-22:00"],
+    "rules": [
+      "Protect sleep before productivity.",
+      "Do demanding work in high-energy windows.",
+      "Treat recovery as legitimate time."
+    ]
+  },
+  "categories": [
+    {"name": "Career", "group": "goal", "color": "#6d28d9"},
+    {"name": "Learning", "group": "goal", "color": "#2563eb"},
+    {"name": "Projects", "group": "goal", "color": "#0891b2"},
+    {"name": "Income", "group": "income", "color": "#ca8a04"},
+    {"name": "Health", "group": "health", "color": "#16a34a"},
+    {"name": "Recovery", "group": "health", "color": "#64748b"},
+    {"name": "Personal", "group": "life", "color": "#6b7280"}
+  ],
+  "fixed_commitments": [],
+  "recurring_responsibilities": [],
+  "weekly_targets": []
+}
