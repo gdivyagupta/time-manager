@@ -1,0 +1,15 @@
+{
+  "description": "User profile schema for Time Manager",
+  "required": ["profile_name", "timezone", "goals", "sleep", "energy", "categories", "fixed_commitments", "recurring_responsibilities", "weekly_targets"],
+  "properties": {
+    "profile_name": {"type": "string"},
+    "timezone": {"type": "string"},
+    "goals": {"type": "array"},
+    "sleep": {"type": "object"},
+    "energy": {"type": "object"},
+    "categories": {"type": "array"},
+    "fixed_commitments": {"type": "array"},
+    "recurring_responsibilities": {"type": "array"},
+    "weekly_targets": {"type": "array"}
+  }
+}
